@@ -237,7 +237,7 @@ int hrpGep::loadBodyCustomizers(const std::string pathString)
 
 /**
    The function loads the customizers in the directories specified
-   by the environmental variable HRPGEPMODEL_CUSTOMIZER_PATH
+   by the environmental variable HRPMODEL_CUSTOMIZER_PATH
 */
 int hrpGep::loadBodyCustomizers(BodyInterface* bodyInterface)
 {
@@ -247,7 +247,7 @@ int hrpGep::loadBodyCustomizers(BodyInterface* bodyInterface)
 
         pluginLoadingFunctionsCalled = true;
 
-        char* pathListEnv = getenv("HRPGEPMODEL_CUSTOMIZER_PATH");
+        char* pathListEnv = getenv("HRPMODEL_CUSTOMIZER_PATH");
 
         if(pathListEnv){
             char_separator<char> sep(PATH_DELIMITER);
