@@ -65,28 +65,18 @@ void ForwardDynamics::enableSensors(bool on)
     sensorsEnabled = on;
 }
 
-
-double ForwardDynamics::jointFriction(Link* link,
-                                      double clmb_threshold,
-                                      unsigned int poly) const
+/*
+double ForwardDynamics::jointFriction(Link* link) const
 {
-  double signDq;
-  if(link->dq>clmb_threshold) signDq=1.0;
-  else if(link->dq<-clmb_threshold) signDq=-1.0;
-  else{
-    signDq = link->dq/clmb_threshold;
-    if (poly == 1);
-    else if (poly == 2 && link->dq >  0) signDq = signDq*signDq;
-    else if (poly == 2 && link->dq <= 0) signDq = -signDq*signDq;
-    else signDq = signDq*signDq*signDq;
-  }
-  //Smoothly set Friction Coefficients according to velocity sign
-  double Kv = 0.5* ( link->Kv_p * (1+signDq) + link->Kv_n * (1-signDq) );
-  double Ka = 0.5* ( link->Ka_p * (1+signDq) + link->Ka_n * (1-signDq) );
-  double Kf = 0.5* ( link->Kf_p * (1+signDq) + link->Kf_n * (1-signDq) );
-  return Kv*link->dq + Ka*link->ddq + Kf*signDq;
-}
+  double friction = 0;
+  if(link->dq>0)
+    friction += link->Kv_p*link->dq + link->Kf_p;
+  else if(link->dq<0)
+    friction += link->Kv_n*link->dq - link->Kf_n;
 
+  return friction;
+}
+*/
 /// function from Murray, Li and Sastry p.42
 void ForwardDynamics::SE3exp(Vector3& out_p, Matrix33& out_R,
 							 const Vector3& p0, const Matrix33& R0,

@@ -68,9 +68,7 @@ namespace hrpGep
 						   const Vector3& p0, const Matrix33& R0,
 						   const Vector3& w, const Vector3& vo, double dt);
 		
-        double jointFriction(Link* link,
-                             double clmb_threshold=0.1,
-                             unsigned int poly=3) const;
+                //        double jointFriction(Link* link) const;
         BodyPtr body;
         Vector3 g;
         double timeStep;

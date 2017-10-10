@@ -175,6 +175,7 @@ namespace hrpGep {
         double gearRatio;
         double gearEfficiency;
         double rotorResistor;
+        /*
 		//Motor Friction Parameters
 		double Kv_p;
 		double Kv_n;
@@ -182,7 +183,7 @@ namespace hrpGep {
 		double Ka_n;
 		double Kf_p;
 		double Kf_n;
-
+        */
         bool isHighGainMode;
         bool isCrawler;
 

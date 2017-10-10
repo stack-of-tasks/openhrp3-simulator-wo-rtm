@@ -702,7 +702,7 @@ void ForwardDynamicsMM::solveUnknownAccels(const Vector3& fext, const Vector3& t
     }
 
 	for(size_t i=0; i < torqueModeJoints.size(); ++i){
-		c1(i + unknown_rootDof) = torqueModeJoints[i]->u-jointFriction(torqueModeJoints[i]);
+          c1(i + unknown_rootDof) = torqueModeJoints[i]->u;//-jointFriction(torqueModeJoints[i]);
 	}
         c1 -= d1;
 	c1 -= b1.col(0);
