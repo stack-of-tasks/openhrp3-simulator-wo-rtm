@@ -65,7 +65,7 @@ void ForwardDynamics::enableSensors(bool on)
     sensorsEnabled = on;
 }
 
-/*
+
 double ForwardDynamics::jointFriction(Link* link) const
 {
   double friction = 0;
@@ -76,7 +76,7 @@ double ForwardDynamics::jointFriction(Link* link) const
 
   return friction;
 }
-*/
+
 /// function from Murray, Li and Sastry p.42
 void ForwardDynamics::SE3exp(Vector3& out_p, Matrix33& out_R,
 							 const Vector3& p0, const Matrix33& R0,

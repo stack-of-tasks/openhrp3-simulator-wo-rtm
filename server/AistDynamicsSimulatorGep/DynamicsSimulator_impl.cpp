@@ -52,7 +52,7 @@ namespace {
     { DynamicsSimulator::JOINT_VELOCITY,	"Joint Velocity"},
     { DynamicsSimulator::JOINT_ACCELERATION,"Joint Acceleration"},
     { DynamicsSimulator::JOINT_TORQUE,		"Joint Torque"},
-    //    { DynamicsSimulator::JOINT_FRICTION_GAINS,  "Friction coefficients of the joint" },
+    { DynamicsSimulator::JOINT_FRICTION_GAINS,  "Friction coefficients of the joint" },
     { DynamicsSimulator::ABS_TRANSFORM,		"Absolute Transform"},
     { DynamicsSimulator::ABS_VELOCITY,		"Absolute Velocity"},
     { DynamicsSimulator::EXTERNAL_FORCE,	"External Force"},
@@ -653,15 +653,12 @@ void DynamicsSimulator_impl::setCharacterLinkData
     case OpenHRP::DynamicsSimulator::JOINT_TORQUE:
       cout << wdata[CORBA::ULong(0)] << ")\n";
       break;
-      /* case OpenHRP::DynamicsSimulator::JOINT_FRICTION_GAINS: // 6x1
+    case OpenHRP::DynamicsSimulator::JOINT_FRICTION_GAINS: // 4x1
       cout << wdata[CORBA::ULong(0)] << ", "
 	   << wdata[CORBA::ULong(1)] << ", "
 	   << wdata[CORBA::ULong(2)] << ","
-	   << wdata[CORBA::ULong(3)] << ", "
-	   << wdata[CORBA::ULong(4)] << ", "
-	   << wdata[CORBA::ULong(5)] << ")" << endl;
+           << wdata[CORBA::ULong(3)] << ")" << endl;
       break;
-      */
     case OpenHRP::DynamicsSimulator::ABS_TRANSFORM: // 12x1
       cout << wdata[CORBA::ULong(0)] << ", "
 	   << wdata[CORBA::ULong(1)] << ", "
@@ -721,17 +718,14 @@ void DynamicsSimulator_impl::setCharacterLinkData
       link->u = wdata[0];
     break;
 
-    /*  case OpenHRP::DynamicsSimulator::JOINT_FRICTION_GAINS:
+  case OpenHRP::DynamicsSimulator::JOINT_FRICTION_GAINS:
     {
       link->Kv_p = wdata[0];
       link->Kv_n = wdata[1];
-      link->Ka_p = wdata[2];
-      link->Ka_n = wdata[3];
-      link->Kf_p = wdata[4];
-      link->Kf_n = wdata[5];
+      link->Kf_p = wdata[2];
+      link->Kf_n = wdata[3];
     }
     break;
-    */
   case OpenHRP::DynamicsSimulator::ABS_TRANSFORM:
     {
       link->p(0) = wdata[0];

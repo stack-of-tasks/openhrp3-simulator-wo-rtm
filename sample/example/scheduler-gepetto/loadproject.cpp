@@ -242,6 +242,7 @@ void LoadProject::AnalyzeModelItem(xmlNode * a_node,
 		      if (currentSubFieldName=="isRobot") extractBoolFromAttr(attr_node,aModelItem.isRobot);
 		      else if (currentSubFieldName=="markRadius") extractDoubleFromAttr(attr_node,aModelItem.markRadius);
 		      else if (currentSubFieldName=="controller") extractStringFromAttr(attr_node,aModelItem.controllerName);
+		      else if (currentSubFieldName=="jointFrictionFile") extractStringFromAttr(attr_node,aModelItem.jointFrictionFile);
 		      else
 			{
 			  PropertyModelItem apropModelItem;
