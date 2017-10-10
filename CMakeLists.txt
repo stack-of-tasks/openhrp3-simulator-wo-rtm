@@ -109,6 +109,8 @@ endif()
 
 include_directories(${PROJECT_BINARY_DIR}/hrplib)
 include_directories(${PROJECT_SOURCE_DIR}/hrplib)
+include_directories(${PROJECT_BINARY_DIR}/hrpGeplib)
+include_directories(${PROJECT_SOURCE_DIR}/hrpGeplib)
 
 set(OPENHRP_SIMULATOR_IDL_DIR ${CMAKE_SOURCE_DIR}/idl)
 
@@ -123,6 +125,7 @@ set(OPENHRP_SHARE_DIR ${OPENHRP_DIR}/${RELATIVE_SHARE_INSTALL_PATH})
 # Subdirectories
 add_subdirectory(idl)
 add_subdirectory(hrplib)
+add_subdirectory(hrpGeplib)
 add_subdirectory(server)
 add_subdirectory(sample)
 add_subdirectory(scripts)
