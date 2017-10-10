@@ -382,6 +382,7 @@ module OpenHRP {
             ABS_ACCELERATION,   // double x 6 (linear, angular)
 			EXTERNAL_FORCE,	    // double x 6 (force ,torque)
             CONSTRAINT_FORCE    // sequence of double x 6 (point, force)
+			,JOINT_FRICTION_GAINS //double x 4 Kv_p, Kv_n, Kf_p, Kf_n
 		};
 
 		/**

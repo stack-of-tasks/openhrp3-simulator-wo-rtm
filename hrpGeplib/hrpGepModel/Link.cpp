@@ -48,12 +48,10 @@ using namespace hrpGep;
 
 
 Link::Link() 
-/*  : Kv_p(0.0),
+  : Kv_p(0.0),
     Kv_n(0.0),
-    Ka_p(0.0),
-    Ka_n(0.0),
     Kf_p(0.0),
-    Kf_n(0.0)*/
+    Kf_n(0.0)
 {
     body = 0;
     index = -1;
@@ -62,7 +60,7 @@ Link::Link()
     parent = 0;
     sibling = 0;
     child = 0;
-    
+
     isHighGainMode = false;
     isCrawler = false;
 
@@ -71,13 +69,11 @@ Link::Link()
 
 
 Link::Link(const Link& org)
-  : name(org.name)
-    /*  ,Kv_p(0.0),
+  : name(org.name),
+    Kv_p(0.0),
     Kv_n(0.0),
-    Ka_p(0.0),
-    Ka_n(0.0),
     Kf_p(0.0),
-    Kf_n(0.0)*/
+    Kf_n(0.0)
 {
     body = 0;
     index = -1; // should be set by a Body object

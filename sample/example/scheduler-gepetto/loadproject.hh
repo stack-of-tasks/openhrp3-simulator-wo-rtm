@@ -123,6 +123,7 @@ struct ModelItem
   std::map<std::string,JointData> jointsMap;
   OpenHRP::BodyInfo_var bodyInfoVar; // Model of the item
   std::string controllerName;
+  std::string jointFrictionFile;
 
   std::ostream & display(std::ostream & os) const
   {
@@ -132,6 +133,7 @@ struct ModelItem
     os << "isRobot: " << isRobot << std::endl;
     os << "markRadius: " << markRadius << std::endl;
     os << "ControllerName: " << controllerName << std::endl;
+    os << "jointFrictionFile: " << jointFrictionFile << std::endl;
     os << "listOfVariableProperties:" << std::endl;
     for(unsigned int i=0;i<listOfVariableProperties.size();
 	i++)

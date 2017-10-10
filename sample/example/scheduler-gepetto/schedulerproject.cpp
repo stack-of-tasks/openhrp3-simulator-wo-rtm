@@ -382,6 +382,71 @@ void SchedulerProject::setBodyMode(JointData &aJointData,
   ODEBUG(std::cout << std::endl);
 }
 
+void SchedulerProject::initRobotsFrictionData()
+{
+  ODEBUG(std::cout << "initRobotsFrictionData() start" << std::endl);
+  for(unsigned int idModel=0;idModel<aListOfModelItems_.get()->size();idModel++) {
+    // If not a robot, let it go
+    if(!(*aListOfModelItems_.get())[idModel].isRobot);
+    else {
+      std::string & CharacterName = (*aListOfModelItems_.get())[idModel].name;
+      std::string &frictionFileName = (*aListOfModelItems_.get())[idModel].jointFrictionFile;        
+      ODEBUG(std::cout << (*aListOfModelItems_.get())[idModel].name << " " 
+             << (*aListOfModelItems_.get())[idModel].jointFrictionFile<< std::endl );
+      //If no file, do nothing. Default friction coeff=0.0;
+      if (frictionFileName.length()==0);
+      else {
+        //Read gains and names
+        std::list<std::string> jNameList;
+        std::list<double> Kv_pList, Kv_nList, Kf_pList, Kf_nList;
+        std::ifstream ifs;
+        ifs.open(frictionFileName.c_str());
+        if (!ifs.is_open())
+          return;
+        while(true) {
+          if( ifs.eof() ) break;
+          std::string jName_in;
+          double Kv_p_in, Kv_n_in, Kf_p_in, Kf_n_in;
+          ifs >> jName_in;
+          // Deal with extra lines
+          if( jName_in.empty() ) break;
+          ifs >> Kv_p_in;          ifs >> Kv_n_in;
+          ifs >> Kf_p_in;          ifs >> Kf_n_in;
+          jNameList.push_back(jName_in);
+          Kv_pList.push_back(Kv_p_in);           Kv_nList.push_back(Kv_n_in); 
+          Kf_pList.push_back(Kf_p_in);           Kf_nList.push_back(Kf_n_in); 
+          std::cout << jName_in << " - " << Kv_p_in << " " << Kv_n_in << " "
+                    << Kf_p_in << " " << Kf_n_in << " " << std::endl;
+        }
+        ifs.close();
+
+        std::cout << "Friction gains of "<< jNameList.size() <<" joints entered"<< std::endl;
+
+        std::list<double>::const_iterator Kv_p_ = Kv_pList.begin();
+        std::list<double>::const_iterator Kv_n_ = Kv_nList.begin();
+        std::list<double>::const_iterator Kf_p_ = Kf_pList.begin();
+        std::list<double>::const_iterator Kf_n_ = Kf_nList.begin();
+
+        for (std::list<std::string>::const_iterator jName_ = jNameList.begin();
+             jName_ != jNameList.end(); ++jName_) {
+          CORBA::String_var CORBAbodyName((*jName_).c_str());
+          //set gains and names
+          DblSequence friction_gains;
+          friction_gains.length(6);
+          friction_gains[0] = *Kv_p_;          friction_gains[1] = *Kv_n_;
+          friction_gains[2] = *Kf_p_;          friction_gains[3] = *Kf_n_;
+          dynamicsSimulator_->setCharacterLinkData( CharacterName.c_str(),
+                                                    CORBAbodyName,
+                                                    DynamicsSimulator::JOINT_FRICTION_GAINS, 
+                                                    friction_gains);
+          ++Kv_p_; ++Kv_n_;
+          ++Kf_p_; ++Kf_n_;
+        }
+      }
+    }
+  }
+}
+
 void SchedulerProject::initRobotsJointData()
 {
   ODEBUG(std::cout << "initRobotsJointData() *************** " << simulationData_.get()->integrate);
@@ -611,6 +676,7 @@ void SchedulerProject::initDynamicsSimulator()
       
       //initRobotsPose();
       initRobotsJointData();
+      initRobotsFrictionData();
       dynamicsSimulator_->calcWorldForwardKinematics();
       
       initCollisions();
