@@ -3,6 +3,7 @@ cmake_minimum_required(VERSION 2.6)
 include(cmake/base.cmake)
 include(cmake/boost.cmake)
 include(cmake/ros.cmake)
+INCLUDE(cmake/eigen.cmake)
 #include(cmake/pthread.cmake)
 
 project(openhrp3_simulator_wo_rtm)
@@ -49,7 +50,7 @@ include(FindPkgConfig)
 include(CheckIncludeFiles)
 
 # Check boost
-find_package(Boost 1.35.0 REQUIRED COMPONENTS program_options filesystem signals system regex thread)
+find_package(Boost 1.35.0 REQUIRED COMPONENTS program_options filesystem signals system regex thread unit_test_framework)
 
 include_directories(${Boost_INCLUDE_DIRS})
 link_directories(${Boost_LIBRARY_DIRS})
@@ -61,9 +62,10 @@ include_directories(${LAPACK_INCLUDE_DIRS})
 link_directories(${LAPACK_LIBRARY_DIRS})
 
 # eigen
-find_package(Eigen)
-include_directories(${EIGEN_INCLUDE_DIR})
-
+#find_package(Eigen)
+#include_directories(${EIGEN_INCLUDE_DIR})
+SEARCH_FOR_EIGEN()
+ADD_REQUIRED_DEPENDENCY("eigen3")
 # png
 if (UNIX)
   set(PNG_INCLUDE_DIR "${PROJECT_SOURCE_DIR}/hrplib/hrpUtil/lpng1232" ) 
@@ -132,5 +134,6 @@ add_subdirectory(scripts)
 
 install(FILES package.xml DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION})
 
+add_subdirectory(unittest)
 
 setup_project_finalize()

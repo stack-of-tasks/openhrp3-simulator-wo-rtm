@@ -45,6 +45,7 @@ namespace hrpGep
         void setRungeKuttaMethod();
         void setTimeStep(double timeStep);
         void enableSensors(bool on);
+        double jointFriction(Link* link) const;
 
         virtual void initialize() = 0;
         virtual void calcNextState() = 0;
@@ -68,7 +69,6 @@ namespace hrpGep
 						   const Vector3& p0, const Matrix33& R0,
 						   const Vector3& w, const Vector3& vo, double dt);
 		
-        double jointFriction(Link* link) const;
         BodyPtr body;
         Vector3 g;
         double timeStep;
