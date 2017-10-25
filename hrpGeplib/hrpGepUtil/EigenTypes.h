@@ -1,5 +1,5 @@
-#ifndef __EIGEN_TYPES_H__
-#define __EIGEN_TYPES_H__
+#ifndef __EIGEN_HRPGEP_TYPES_H__
+#define __EIGEN_HRPGEP_TYPES_H__
 
 #ifdef random
 #undef random

@@ -346,8 +346,8 @@ void ForwardDynamicsABM::calcABMPhase2()
                 // dd = Ia * s * s^T
                 link->dd = link->sv.dot(link->hhv) + link->sw.dot(link->hhw) + link->Jm2;
                 // uu = u - hh^T*c + s^T*pp
-                link->uu = link->u// - jointFriction(link) 
-					 - (link->hhv.dot(link->cv) + link->hhw.dot(link->cw)
+                link->uu = link->u - jointFriction(link) 
+                  - (link->hhv.dot(link->cv) + link->hhw.dot(link->cw)
                      + link->sv.dot(link->pf) + link->sw.dot(link->ptau));
             }
         }
@@ -419,8 +419,8 @@ void ForwardDynamicsABM::calcABMPhase2Part2()
 
         if(i > 0){
             if(link->jointType != Link::FIXED_JOINT)
-              link->uu += link->u// -jointFriction(link)
-					- (link->sv.dot(link->pf) + link->sw.dot(link->ptau));
+              link->uu += link->u -jointFriction(link)
+                - (link->sv.dot(link->pf) + link->sw.dot(link->ptau));
         }
     }
 }

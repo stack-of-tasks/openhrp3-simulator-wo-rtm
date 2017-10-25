@@ -3,6 +3,7 @@
 
 #include <fstream>
 #include <sstream>
+#include <list>
 #include <hrpGepUtil/OnlineViewerUtil.h>
 #include <hrpGepModel/ModelLoaderUtil.h>
 #include <hrpGepCorba/DynamicsSimulator.hh>
@@ -48,6 +49,7 @@ protected:
   //void initRobotsFreeFlyerPosition();
   //void initRobotsPose();
   void initRobotsJointData();
+  void initRobotsFrictionData();
   void setTorqueToZero();
   void initParallelMecanisms();
   void initCollisions();
