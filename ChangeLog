@@ -1,0 +1,131 @@
+Rohan Budhiraja 2017-10-25 
+     Merge pull request #6 from proyan/master 
+
+Rohan Budhiraja 2017-10-12 
+     [unittest][gepetto-simulator][friction] add unit test to compare with original simulator 
+
+Rohan Budhiraja 2017-10-10 
+     [joint friction] Input friction gains via project xml file [openhrp3-simulator-gepetto][joint-friction] add friction simulation to forward-dynamics 
+
+Rohan Budhiraja 2017-10-10 
+     [cmake] synchronize 
+
+Rohan Budhiraja 2017-10-10 
+     [gitignore] 
+
+Rohan Budhiraja 2017-10-12 
+      [openhrp3-simulator] New Corba Server for dynamics simulation (#5) 
+
+Olivier Stasse 2017-09-07 
+     Merge pull request #3 from olivier-stasse/master 
+
+Olivier Stasse 2017-09-07 
+     Add a script to kill all the processes. 
+
+Olivier Stasse 2017-09-07 
+     Merge pull request #2 from olivier-stasse/master 
+
+Olivier Stasse 2017-09-07 
+     Add a tilt-plate robot to test a humanoid robot. 
+
+Olivier Stasse 2017-09-06 
+     Merge pull request #1 from olivier-stasse/master 
+
+Olivier Stasse 2017-07-04 
+     [cmake] Fix pthreads dependency. 
+
+Olivier Stasse 2017-07-04 
+     [cmake] Fix again CMakeLists.txt 
+
+Olivier Stasse 2017-07-04 
+     [cmake] Add back pthread. 
+
+Olivier Stasse 2017-07-04 
+     [cmake] Change pthread to boost and change catkin_package position in CMakeLists.txt 
+
+Olivier Stasse 2017-07-04 
+     [cmake] Fix catkin_package position in CMakeLists.txt 
+
+Olivier Stasse 2017-07-04 
+     Remove search_for_pthread. 
+
+Olivier Stasse 2017-07-04 
+     Version 1.1.2 
+
+Olivier Stasse 2017-07-04 
+     [cmake] Synchronize 
+
+Olivier Stasse 2017-07-04 
+     Implements mutex in OnlineViewer based on gepetto-viewer. 
+
+Olivier Stasse 2017-07-04 
+     Robustify schedulerproject. 
+
+Olivier Stasse 2017-07-04 
+     catkinize this package. 
+
+Olivier Stasse 2016-10-20 
+     Clean and clarify the display. 
+
+Olivier Stasse 2016-10-20 
+     Add ExtraJoint in the scheduler project reading. This is allowing to specify closed kinematic chain. 
+
+Olivier Stasse 2016-10-16 
+     Fix illumination problem. 
+
+Olivier Stasse 2016-09-17 
+     Prevent multiple update if the previous call is not finished. 
+
+Olivier Stasse 2016-09-16 
+     Add example with sample1_bush complete Removed or switch off debugging messages Add projectGenerator 
+
+Olivier Stasse 2016-09-16 
+     Add missing files + projectGenerator + sample1_bush program 
+
+Olivier Stasse 2016-09-14 
+     Investiguate spring damper usage with OpenHRP3. Add scheduler project parser. 
+
+Olivier Stasse 2016-08-25 
+     Configure file should not be generated in the src directory. 
+
+Olivier Stasse 2016-08-25 
+     Fix variables for CMakeLists.txt 
+
+Olivier Stasse 2016-08-24 
+     Removed HRP-2 specific part. 
+
+Olivier Stasse 2016-08-24 
+     Flexible material integration. 
+
+Olivier Stasse 2016-08-19 
+     Fix pb with color display. 
+
+Olivier Stasse 2016-08-16 
+     Add loop closure in the HRP-2 simulation. 
+
+Olivier Stasse 2016-07-16 
+     Add sot-controller. 
+
+Olivier Stasse 2016-07-16 
+     Adapt to main stream gepetto-viewer. 
+
+Olivier Stasse 2016-05-12 
+     Working example. 
+
+Olivier Stasse 2016-05-06 
+     Fix geometry display + debug traces 
+
+Olivier Stasse 2016-05-03 
+     Add OnlineViewer using gepetto-viewer. 
+
+Olivier Stasse 2016-05-03 
+     Fix warning when switching to -std=c++11 Add jrl-cmakemodules Add OnlineViewer inside CMakeLists.txt 
+
+Olivier Stasse 2015-11-23 
+     Update the policy to install header. Instead of going to RELATIVE_INCLUDE_PATH put CMAKE_INSTALL_PREFIX/include. 
+
+Olivier Stasse 2015-11-09 
+     Add README.md 
+
+Olivier Stasse 2015-11-09 
+     Initial commit 
